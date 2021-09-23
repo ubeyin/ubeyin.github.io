@@ -1,0 +1,286 @@
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+}
+
+.navbar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.13);
+    z-index: 1000;
+    padding: 8px 19px;
+}
+
+.navbar::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.navbar h2 {
+    margin: 0;
+    color: #333;
+    float: left;
+    padding: 5px;
+}
+
+.navbar div {
+    float: right;
+    padding: 7px 10px;
+}
+
+.navbar div button {
+    background-color: transparent;
+    padding: 6px 17px;
+    font-size: 15.6px;
+    color: #0f5132;
+    margin-right: 15px;
+    border: 0;
+}
+
+.navbar div button:not(:last-child):hover {
+    border: 1px dotted #0f5132;
+    padding: 5px 16px;
+}
+
+.navbar div button:last-child {
+    background-color: #0f5132;
+    border-radius: .14rem;
+    color: #fff;
+    padding: 6px 23px;
+    margin: 0 10px;
+}
+
+.banner {
+    position: relative;
+    width: 100%;
+    min-height: 340px;
+    padding: 10px;
+    color: #0f5132;
+    /*background-color: #d1e7dd;*/
+    background-color: rgba(156, 156, 156, 0.274);
+    text-align: center;
+    background-image: url(../image/banner.png);
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+.banner div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.783);
+}
+
+.banner h2 {
+    width: 100%;
+    max-width: 400px;
+    margin-left: 50%;
+    padding-top: 50px;
+    transform: translate(-50%, 0);
+}
+
+
+.banner p {
+    width: 100%;
+    max-width: 600px;
+    margin-left: 50%;
+    padding: 0 30px;
+    transform: translate(-50%, 0);
+}
+
+.banner button {
+    background-color: transparent;
+    padding: 7px 17px;
+    font-size: 15.6px;
+    color: #0f5132;
+    border: 1px dotted #0f5132;
+    margin-top: 20px;
+    margin-bottom: 70px;
+}
+
+.banner button:hover {
+    opacity: .7;
+}
+
+.banner button:active {
+    border-color: transparent;
+    background-color: rgba(0, 0, 0, 0.043);
+}
+
+.banner2 {
+    padding: 50px;
+}
+
+.banner2 .card {
+    padding: 10px 16px;
+    margin-left: 40%;
+    min-width: 300px;
+    transform: translate(-50%);
+}
+
+.banner3 {
+    background-color: #f5f8fa;
+    width: 100%;
+    height: 400px;
+    text-align: center;
+}
+
+
+.banner3 h2 {
+    width: 100%;
+    max-width: 400px;
+    margin-left: 50%;
+    padding-top: 100px;
+    transform: translate(-50%, 0);
+}
+
+
+.banner3 p {
+    width: 100%;
+    max-width: 600px;
+    margin-left: 50%;
+    padding: 0 30px;
+    transform: translate(-50%, 0);
+}
+
+.banner3 button {
+    background-color: transparent;
+    padding: 7px 17px;
+    font-size: 15.6px;
+    color: #0f5132;
+    border: 1px dotted #0f5132;
+    margin-top: 20px;
+    margin-bottom: 70px;
+}
+
+.banner3 button:hover {
+    opacity: .7;
+}
+
+.banner3 button:active {
+    border-color: transparent;
+    background-color: rgba(0, 0, 0, 0.043);
+}
+
+@media only screen and (min-width: 700px) {
+
+    .banner {
+        min-height: 380px;
+    }
+
+    .banner h2 {
+        font-size: 1.82em;
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+    .navbar div {
+        display: none;
+    }
+
+    .banner {
+        background-position: left;
+    }
+
+
+}
+
+@media screen and (min-width: 1200px) {
+    .banner {
+        background-position: left;
+    }
+
+    .banner2 {
+        display: flex;
+    }
+
+    .banner2 .card {
+        width: 30%;
+        padding: 10px 16px;
+        margin-left: auto;
+        transform: none;
+    }
+}
+
+.footer {
+    background-color: #2d3e50;
+    color: #fff;
+    width: 100%;
+    min-height: 150px;
+    text-align: center;
+}
+
+.footer .credit h2 {
+    margin: 0px;
+    padding-top: 20px;
+}
+
+.footer .credit p {
+    font-size: .75rem;
+    line-height: 1.16667em;
+    color: #cbd6e2;
+}
+
+.footer .credit div a {
+    display: inline-block;
+    margin-left: 10px;
+    font-size: .875rem;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: underline;
+}
+
+
+.footer .credit div a:not(:last-child)::after {
+    content: "";
+    padding-right: 10px;
+    border-right: 1px solid rgba(149, 149, 149, 0.496);
+}
+
+
+/*
+
+.panel {
+    position: relative;
+    width: 100%;
+    min-height: 30px;
+    padding: 10px;
+    color: #0f5132;
+    background-color: #d1e7dd;
+    border-top: 1px dotted #0f5132;
+}
+
+.panel p {
+    margin: 0;
+    color: #0c4128;
+}
+
+.panel span {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    cursor: pointer;
+    padding: 3px 8px;
+}
+
+.panel span:hover {
+    padding: 2px 7px;
+    border: 1px dotted #0f5132;
+}
+
+*/
