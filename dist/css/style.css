@@ -10,6 +10,11 @@ body {
     font-size: 16px;
 }
 
+button,
+a {
+    cursor: pointer;
+}
+
 .navbar {
     position: sticky;
     top: 0;
@@ -25,6 +30,11 @@ body {
     content: "";
     display: block;
     clear: both;
+}
+
+.navbar div a {
+    color: inherit;
+    text-decoration: none;
 }
 
 .navbar h2 {
@@ -48,12 +58,17 @@ body {
     border: 0;
 }
 
-.navbar div button:not(:last-child):hover {
+.navbar div button:not(.special):hover,
+.navbar div button[active] {
     border: 1px dotted #0f5132;
     padding: 5px 16px;
 }
 
-.navbar div button:last-child {
+.navbar div button[active] {
+    background-color: rgba(209, 231, 221, 0.376);
+}
+
+.navbar div button.special {
     background-color: #0f5132;
     border-radius: .14rem;
     color: #fff;
@@ -76,16 +91,22 @@ body {
     background-position: right;
 }
 
-.banner div {
+.banner>div,
+.banner form {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.783);
+    background-color: rgba(255, 255, 255, 0.883);
 }
 
-.banner h2 {
+
+.banner form {
+    background-color: rgba(255, 255, 255, 0.883);
+}
+
+.banner>div h2 {
     width: 100%;
     max-width: 400px;
     margin-left: 50%;
@@ -94,7 +115,7 @@ body {
 }
 
 
-.banner p {
+.banner>div p {
     width: 100%;
     max-width: 600px;
     margin-left: 50%;
@@ -103,7 +124,7 @@ body {
 }
 
 .banner button {
-    background-color: transparent;
+    background-color: rgba(209, 231, 221, 0.109);
     padding: 7px 17px;
     font-size: 15.6px;
     color: #0f5132;
@@ -114,11 +135,77 @@ body {
 
 .banner button:hover {
     opacity: .7;
+    background-color: rgba(209, 231, 221, 0.376);
 }
 
 .banner button:active {
     border-color: transparent;
     background-color: rgba(0, 0, 0, 0.043);
+}
+
+.banner form div {
+    width: 400px;
+    height: 480px;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: .4rem;
+    margin: 15px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.143);
+    text-align: left;
+    margin-left: 50%;
+    transform: translate(-50%);
+}
+
+.banner form div h2 {
+    font-size: 30px;
+    margin: 0;
+    text-align: center;
+}
+
+.banner form div p {
+    font-size: 14px;
+    margin: 0;
+    padding: 10px;
+}
+
+.banner form div h3 {
+    font-size: 14px;
+    margin: 0;
+    padding: 10px;
+    font-weight: 700;
+}
+
+.banner form div input {
+    font-size: 14px;
+    width: 100%;
+    margin: 0;
+    padding: 10px;
+    font-weight: 500;
+    outline: none;
+    background-color: #eee;
+    border-radius: .12rem;
+    border: 1px dotted rgba(0, 0, 0, 0.43);
+}
+
+.banner form div input:focus {
+    border-color: rgba(8, 122, 71, 0.904);
+    background-color: rgba(209, 231, 221, 0.376);
+}
+
+.banner form div button {
+    display: block;
+    width: 100%;
+    margin: 30px auto;
+    margin-bottom: 10px;
+    background-color: rgb(209, 231, 221);
+}
+
+.banner form div button:last-child {
+    margin-top: 0;
+}
+
+.banner form div button:hover {
+    background: rgb(209, 231, 221);
 }
 
 .banner2 {
@@ -188,16 +275,91 @@ body {
 
 }
 
-@media screen and (max-width: 600px) {
-    .navbar div {
+@media screen and (min-width: 600px) {
+
+    .navbar div main:last-child {
         display: none;
+    }
+
+    .navbar div main:first-child {
+        display: block;
+    }
+
+    .navbar div main:first-child span {
+        display: none;
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+    .navbar div main:last-child {
+        display: block;
+    }
+
+    .navbar div main:first-child {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        min-height: 100px;
+        background-color: rgba(255, 255, 255, 0.93);
+        box-shadow: 0 0 7px rgba(0, 0, 0, 0.13);
+        padding: 20px;
+    }
+
+    .navbar div button {
+        display: block;
+        background-color: transparent;
+        padding: 6px 17px;
+        font-size: 15.6px;
+        color: #0f5132;
+        margin-right: 15px;
+        border: 1px dotted #0f5132;
+        margin: 15px 20px;
+        width: 150px;
+    }
+
+    .navbar div button:not(.special):hover {
+        padding: 6px 17px;
+    }
+
+    .navbar div button[active] {
+        background-color: rgba(209, 231, 221, 0.376);
+    }
+
+    .navbar div button[active]:hover {
+        padding: 5px 16px;
+    }
+
+    .navbar div button.special {
+        background-color: #0f5132;
+        border-radius: .14rem;
+        color: #fff;
+        padding: 6px 23px;
+        margin-left: 20px;
+    }
+
+    .navbar div main:last-child button {
+        width: 80px;
+        margin: 0;
+    }
+
+    .navbar div main:first-child span {
+        display: block;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 17px;
+        font-weight: 700;
+        color: #0f5132;
+        opacity: .7;
+        cursor: pointer;
     }
 
     .banner {
         background-position: left;
     }
-
-
 }
 
 @media screen and (min-width: 1200px) {
@@ -221,7 +383,7 @@ body {
     background-color: #2d3e50;
     color: #fff;
     width: 100%;
-    min-height: 150px;
+    padding-bottom: 30px;
     text-align: center;
 }
 
@@ -252,6 +414,86 @@ body {
     border-right: 1px solid rgba(149, 149, 149, 0.496);
 }
 
+.alert {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.43);
+    z-index: 2000;
+    animation: .2s alert-layer;
+}
+
+.alert>div {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%);
+    background-color: #fff;
+    width: 95%;
+    max-width: 400px;
+    min-height: 300px;
+    border-radius: .12rem;
+    animation: .2s alert-open;
+}
+
+.alert>div .welcome img {
+    width: 100%;
+    padding-top: 20px;
+}
+
+.alert>div .welcome div {
+    padding: 20px;
+}
+
+.alert>div .welcome div button {
+    background-color: rgba(209, 231, 221, 0.486);
+    padding: 7px 17px;
+    font-size: 15.6px;
+    color: #0f5132;
+    border: 1px dotted #0f5132;
+    margin: 20px 10px;
+}
+
+.alert>div .welcome div button:hover {
+    opacity: .7;
+}
+
+.alert>div .welcome div button:active {
+    border-color: transparent;
+    background-color: rgba(0, 0, 0, 0.043);
+}
+
+
+.alert>div .welcome div p,
+.alert>div .welcome div h2 {
+    padding: 0 10px;
+}
+
+.alert section {
+    background-color: transparent;
+    padding: 7px 17px;
+    font-size: 15.6px;
+    color: #0f5132;
+    border: 1px dotted #0f5132;
+    border-left: none;
+    border-right: none;
+    margin: 20px 10px;
+    margin-bottom: 0;
+}
+
+@keyframes alert-open {
+    from {
+        transform: scale(0.5);
+    }
+}
+
+@keyframes alert-layer {
+    from {
+        opacity: .7;
+    }
+}
 
 /*
 
