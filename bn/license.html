@@ -1,0 +1,71 @@
+<link rel="stylesheet" href="../dist/css/style.css">
+<nav class="navbar">
+    <h2>উবেইন</h2>
+    <div>
+        <main>
+            <span onclick="this.parentNode.style.display = 'none'">বন্ধ করুন</span>
+            <button active>লাইসেন্স</button>
+            <a href="index.html"><button class="special">
+                    <svg viewBox="0 0 28 28" height="16" width="16" style="fill: currentColor;">
+                        <path
+                            d="M25.825 12.29C25.824 12.289 25.823 12.288 25.821 12.286L15.027 2.937C14.752 2.675 14.392 2.527 13.989 2.521 13.608 2.527 13.248 2.675 13.001 2.912L2.175 12.29C1.756 12.658 1.629 13.245 1.868 13.759 2.079 14.215 2.567 14.479 3.069 14.479L5 14.479 5 23.729C5 24.695 5.784 25.479 6.75 25.479L11 25.479C11.552 25.479 12 25.031 12 24.479L12 18.309C12 18.126 12.148 17.979 12.33 17.979L15.67 17.979C15.852 17.979 16 18.126 16 18.309L16 24.479C16 25.031 16.448 25.479 17 25.479L21.25 25.479C22.217 25.479 23 24.695 23 23.729L23 14.479 24.931 14.479C25.433 14.479 25.921 14.215 26.132 13.759 26.371 13.245 26.244 12.658 25.825 12.29">
+                        </path>
+                    </svg>
+                </button></a>
+        </main>
+        <main>
+            <button
+                onclick="this.parentNode.parentNode.querySelectorAll('main')[0].style.display = 'block'">মেনু</button>
+        </main>
+    </div>
+</nav>
+<div class="banner">
+    <div>
+        <h2>যেখানে আমরা মানুষকে নিয়ে একটি ভালো সম্প্রদায় তৈরি করতে চাই</h2>
+        <p>যেখানে আমরা একটি বিনামূল্যে, সামঞ্জস্যপূর্ণ পরিষেবা প্রদান করি এবং আমরা ইসলামিক উপায়ে একটি স্ব স্ব, নমনীয় সম্প্রদায় গড়ে তুলতে চাই, এটি উবেইন।</p>
+        <button>আরো জানুন</button>
+    </div>
+</div>
+<style>
+    iframe {
+        width: 100%;
+        height: 3100px;
+    }
+
+    section {
+        display: none;
+    }
+
+    @media screen and (max-width: 600px) {
+        iframe {
+            display: none;
+        }
+
+        section {
+            display: block;
+            height: 200px;
+        }
+    }
+</style>
+<div section-language="en" style="padding: 30px;">
+    <iframe src="../dist/license/ap2.txt" frameborder="0"></iframe>
+    <section>পৃষ্ঠাটি রিফ্রেশ করুন ....</section>
+</div>
+<div class="footer">
+    <div class="credit">
+        <h2>উবেইন</h2>
+        <p>কপিরাইট &copy; <script>
+                document.write(new Date().getFullYear())
+            </script> উবেইন 10 দ্বারা।</p>
+        <div>
+            <a href="privacy.html">গোপনীয়তা নীতি</a>
+        </div>
+    </div>
+</div>
+<script>
+    window.onload = function () {
+        if (window.innerWidth <= 600) {
+            window.location.href = "../dist/license/ap2.txt";
+        }
+    }
+</script>
