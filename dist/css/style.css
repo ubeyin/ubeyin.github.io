@@ -421,6 +421,8 @@ a {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.43);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     z-index: 2000;
     animation: .2s alert-layer;
 }
