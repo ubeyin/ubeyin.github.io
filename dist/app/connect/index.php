@@ -11,14 +11,14 @@
      echo 0;
    }
 
-   error_reporting(0);
+   // error_reporting(0);
 
    /* Create table if table does not exist */
 
    if(empty(mysqli_query($server, "SELECT * FROM users"))) {
         $table1 = "CREATE TABLE `users`(
           `id` INT(255) NOT NULL AUTO_INCREMENT,
-          `username` VARCHAR(255) NOT NULL,
+          `username` VARCHAR(255) NOT NULL UNIQUE,
           `name` VARCHAR(255) NOT NULL,
           `email` VARCHAR(255) NOT NULL,
           `verified` TINYINT(1) NOT NULL DEFAULT '0',

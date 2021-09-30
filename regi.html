@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ubeyin: join to an account</title>
+    <title>Ubeyin: account registration</title>
     <meta name="description"
         content="Where we provide a free, compatible services and we want to build a respective, flexible community with islamic way, it's Ubeyin.">
     <meta name="keywords"
@@ -29,7 +29,7 @@
         <div>
             <main>
                 <span onclick="this.parentNode.style.display = 'none'">Close</span>
-                <button active>Join community</button>
+                <button active>Registration</button>
                 <a href="index.html"><button class="special">
                         <svg viewBox="0 0 28 28" height="16" width="16" style="fill: currentColor;">
                             <path
@@ -45,17 +45,19 @@
         </div>
     </nav>
     <div class="banner">
-        <form action="#login" autocomplete="off" id="join-form">
-            <div>
-                <h2>Community</h2>
+        <form action="#signup" autocomplete="off" id="regi-form">
+            <div style="height: 500px;">
+                <h2>Account</h2>
                 <p>Our free community have a feature that you can share islamic contents for muslim brothers. We verify
                     all content.</p>
-                <h3>User ID</h3>
-                <input type="text" placeholder="User ID with number, email or name" required>
-                <h3>User Password</h3>
-                <input type="password" placeholder="User Password" required>
-                <button type="submit">SUBMIT</button>
-                <button type="reset">FORGOT SOMETHING?</button>
+                <h3>Full name</h3>
+                <input type="text" placeholder="Full name with letter only (5-20)" required>
+                <h3>Email address</h3>
+                <input type="email" placeholder="Email address (additional)">
+                <h3>Password</h3>
+                <input type="password" placeholder="User Password (5-32)" required>
+                <button style="opacity: 0;cursor: auto;padding: 0 !important;height: 0 !important;" disabled></button>
+                <button type="submit">JOIN NOW</button>
             </div>
         </form>
     </div>
@@ -142,8 +144,8 @@
 
     <script src="dist/js/util.js"></script>
     <script>
-        if (window.location.href.includes("?#login") == false) {
-            window.location.href = window.location.href + "?#login";
+        if (window.location.href.includes("?#signup") == false) {
+            window.location.href = window.location.href + "?#signup";
         }
     </script>
 </body>
