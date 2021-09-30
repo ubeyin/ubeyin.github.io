@@ -141,9 +141,10 @@
     </div>
 
     <script src="dist/js/util.js"></script>
+    <script src="dist/js/redirect.js"></script>
     <script>
         if (window.location.href.includes("?#login") == false) {
-            window.location.href = window.location.href + "?#login";
+            window.location.href = 'join.html' + "?#login";
         }
     </script>
 </body>

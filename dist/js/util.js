@@ -1,4 +1,4 @@
-let url = "https://ubeyin.000webhostapp.com/u/";
+var url = "https://ubeyin.000webhostapp.com/u/";
 let alertJoin, request;
 let joinTo;
 
@@ -11,6 +11,8 @@ if (document.getElementById("join-form")) {
         request(url + 'login/?id=' + joinID + '&open=' + joinPS, function (a) {
             if (window.location.href.indexOf("/bn") > -1) {
                 if (a == 200) {
+                    setCookie("YTdfhfdh", joinID);
+                    setCookie("hfdhYTdf", joinPS);
                     alertJoin(0, joinID);
                 } else if (a == 404) {
                     alertJoin(2, '<img src="../dist/image/moment.png" title="Welcome to ubeyin community."><div><h2>সতর্কতা!</h2><p>আপনার দেওয়া আইডি সংযুক্ত বা অনুপলব্ধ, অনুগ্রহ করে আবার চেষ্টা করুন অথবা একটি অ্যাকাউন্ট তৈরি করুন!</p><section>' + joinID + '</section><button onclick="this.parentNode.parentNode.style.display = \'none\';this.parentNode.parentNode.parentNode.parentNode.style.display = \'none\';">ঠিক আছে</button><button onclick="this.parentNode.parentNode.style.display = \'none\';this.parentNode.parentNode.parentNode.parentNode.style.display = \'none\';joinTo();">একটি অ্যাকাউন্ট তৈরি করুন</button></div>');
@@ -23,6 +25,8 @@ if (document.getElementById("join-form")) {
                 }
             } else {
                 if (a == 200) {
+                    setCookie("YTdfhfdh", joinID);
+                    setCookie("hfdhYTdf", joinPS);
                     alertJoin(0, joinID);
                 } else if (a == 404) {
                     alertJoin(2, '<img src="dist/image/moment.png" title="Welcome to ubeyin community."><div><h2>Warning!</h2><p>The ID you entered isn\'t connected or unavailable, please try again or create an account!</p><section>' + joinID + '</section><button onclick="this.parentNode.parentNode.style.display = \'none\';this.parentNode.parentNode.parentNode.parentNode.style.display = \'none\';">Okay</button><button onclick="this.parentNode.parentNode.style.display = \'none\';this.parentNode.parentNode.parentNode.parentNode.style.display = \'none\';joinTo();">Create an account</button></div>');
@@ -46,11 +50,13 @@ if (document.getElementById("regi-form")) {
         let joinPS = this.getElementsByTagName('input')[2].value;
         let joinEM = this.getElementsByTagName('input')[1].value;
 
-        request(url + 'signup/?id=' + joinID + '&email=' + joinEM+'&open=' + joinPS, function (a) {
+        request(url + 'signup/?id=' + joinID + '&email=' + joinEM + '&open=' + joinPS, function (a) {
             if (window.location.href.indexOf("/bn") > -1) {
-                
+
             } else {
                 if (a == 200) {
+                    setCookie("YTdfhfdh", joinID);
+                    setCookie("hfdhYTdf", joinPS);
                     alertJoin(1, joinID);
                 } else if (a == 404) {
                     alertJoin(2, '<img src="dist/image/moment.png" title="Welcome to ubeyin community."><div><h2>Warning!</h2><p>Unable to create your new account, please try again or later!</p><section>' + joinID + '</section><button onclick="this.parentNode.parentNode.style.display = \'none\';this.parentNode.parentNode.parentNode.parentNode.style.display = \'none\';">Okay</button></div>');
@@ -67,8 +73,17 @@ if (document.getElementById("regi-form")) {
 
 }
 
+if (document.querySelectorAll(".alert")[0]) {
+    document.querySelectorAll(".alert")[0].querySelectorAll('button')[0].onclick = function () {
+        window.location.href = "app.html";
+    }
+    document.querySelectorAll(".alert")[0].querySelectorAll('button')[1].onclick = function () {
+        window.location.href = "app.html";
+    }
+}
+
 joinTo = function () {
-    alert('...')
+    window.location.href = "regi.html?#signup";
     request(url + '', function (a) {
         var b = JSON.parse(a);
 
@@ -134,3 +149,34 @@ request = function (urls, success, error, data) {
         xhr.send(data);
     }
 };
+
+
+function setCookie(cname, cvalue, exdays) {
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    let expires = "expires=" + d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+    let name = cname + "=";
+    let ca = document.cookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+function shiftCookie(cname, cvalue) {
+    document.cookie = cname + "=" + ";";
+}
+
+function delCookie(cname, cvalue) {
+    document.cookie = "";
+}

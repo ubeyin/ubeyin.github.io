@@ -15,6 +15,7 @@ a {
     cursor: pointer;
 }
 
+
 .navbar {
     position: sticky;
     top: 0;
@@ -125,7 +126,7 @@ a {
 
 .banner button {
     background-color: rgba(209, 231, 221, 0.109);
-    padding: 7px 17px;
+    padding: 9.50px 17px;
     font-size: 15.6px;
     color: #0f5132;
     border: 1px dotted #0f5132;
@@ -175,9 +176,8 @@ a {
     font-weight: 700;
 }
 
-.banner form div input {
+.banner input {
     font-size: 14px;
-    width: 100%;
     margin: 0;
     padding: 10px;
     font-weight: 500;
@@ -185,11 +185,16 @@ a {
     background-color: #eee;
     border-radius: .12rem;
     border: 1px dotted rgba(0, 0, 0, 0.43);
+    margin-right: 10px;
 }
 
-.banner form div input:focus {
+.banner input:focus {
     border-color: rgba(8, 122, 71, 0.904);
     background-color: rgba(209, 231, 221, 0.376);
+}
+
+.banner form div input {
+    width: 100%;
 }
 
 .banner form div button {
@@ -496,35 +501,3 @@ a {
         opacity: .7;
     }
 }
-
-/*
-
-.panel {
-    position: relative;
-    width: 100%;
-    min-height: 30px;
-    padding: 10px;
-    color: #0f5132;
-    background-color: #d1e7dd;
-    border-top: 1px dotted #0f5132;
-}
-
-.panel p {
-    margin: 0;
-    color: #0c4128;
-}
-
-.panel span {
-    position: absolute;
-    right: 5px;
-    top: 5px;
-    cursor: pointer;
-    padding: 3px 8px;
-}
-
-.panel span:hover {
-    padding: 2px 7px;
-    border: 1px dotted #0f5132;
-}
-
-*/
