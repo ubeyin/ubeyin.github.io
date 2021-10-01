@@ -1,13 +1,20 @@
+@import url(https://fonts.googleapis.com/css?family=Nunito);
+
 *,
 *:after,
 *:before {
     box-sizing: border-box;
+    font-family: Nunito, sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue';
 }
 
 body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 16px;
+    line-height: 28px;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    line-height: 36px !important;
 }
 
 button,
@@ -56,6 +63,11 @@ a {
     color: #0f5132;
     margin-right: 15px;
     border: 0;
+}
+
+.navbar div button:disabled {
+    text-decoration: line-through;
+    cursor: not-allowed;
 }
 
 .navbar div button:not(.special):hover,
@@ -145,11 +157,12 @@ a {
 
 .banner form div {
     width: 400px;
-    height: 480px;
+    min-height: 500px;
     padding: 30px;
     background-color: #fff;
     border-radius: .4rem;
     margin: 15px;
+    margin-top: 30px;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.143);
     text-align: left;
     margin-left: 50%;
@@ -219,6 +232,10 @@ a {
     transform: translate(-50%);
 }
 
+.banner2 p {
+    color: #6c757d !important;
+}
+
 .banner3 {
     background-color: #f5f8fa;
     width: 100%;
@@ -241,6 +258,7 @@ a {
     max-width: 600px;
     margin-left: 50%;
     padding: 0 30px;
+    color: #6c757d !important;
     transform: translate(-50%, 0);
 }
 
@@ -495,6 +513,19 @@ a {
     from {
         opacity: .7;
     }
+}
+
+.stop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.43);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 2000;
+    animation: .2s alert-layer;
 }
 
 /*

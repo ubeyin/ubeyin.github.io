@@ -41,9 +41,9 @@ VALUES ('" . $signup_id . "', '" . $signup_email . "' , '" . $signup_pass . "' ,
     
     if ($state === 0) {
         if (mysqli_query($server, $signup_in_user1)) {
-            echo 200;
+            echo 'C200';
         } else {
-            echo 404;
+            echo 'C404';
         }
     }
 mysqli_close($server);

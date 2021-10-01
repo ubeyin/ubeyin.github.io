@@ -20,15 +20,15 @@ if (filter_var($login_id, FILTER_VALIDATE_EMAIL)) {
 
 if ($state === 0) {
     if (mysqli_query($server, $login_in_user1) && mysqli_num_rows(mysqli_query($server, $login_in_user1)) > 0) {
-        echo 200;
+        echo 'C200';
     } else if (mysqli_query($server, $login_in_user3) && mysqli_num_rows(mysqli_query($server, $login_in_user3)) > 0) {
-        echo 200;
+        echo 'C200';
     } else if (mysqli_query($server, $login_in_user2) && mysqli_num_rows(mysqli_query($server, $login_in_user2)) > 0) {
-        echo 400;
+        echo 'C400';
     } else if (mysqli_query($server, $login_in_user4) && mysqli_num_rows(mysqli_query($server, $login_in_user4)) > 0) {
-        echo 400;
+        echo 'C400';
     } else {
-        echo 404;
+        echo 'C404';
     }
 }
 

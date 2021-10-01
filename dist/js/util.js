@@ -10,29 +10,29 @@ if (document.getElementById("join-form")) {
 
         request(url + 'login/?id=' + joinID + '&open=' + joinPS, function (a) {
             if (window.location.href.indexOf("/bn") > -1) {
-                if (a == 200) {
+                if (a.includes("C200") === true) {
                     setCookie("YTdfhfdh", joinID);
                     setCookie("hfdhYTdf", joinPS);
                     alertJoin(0, joinID);
-                } else if (a == 404) {
+                } else if (a.includes("C404") === true) {
                     alertJoin(2, '<img src="../dist/image/moment.png" title="Welcome to ubeyin community."><div><h2>সতর্কতা!</h2><p>আপনার দেওয়া আইডি সংযুক্ত বা অনুপলব্ধ, অনুগ্রহ করে আবার চেষ্টা করুন অথবা একটি অ্যাকাউন্ট তৈরি করুন!</p><section>' + joinID + '</section><button onclick="this.parentNode.parentNode.style.display = \'none\';this.parentNode.parentNode.parentNode.parentNode.style.display = \'none\';">ঠিক আছে</button><button onclick="this.parentNode.parentNode.style.display = \'none\';this.parentNode.parentNode.parentNode.parentNode.style.display = \'none\';joinTo();">একটি অ্যাকাউন্ট তৈরি করুন</button></div>');
-                } else if (a == 400) {
+                } else if (a.includes("C400") === true) {
                     alertJoin(2, '<img src="../dist/image/moment.png" title="Welcome to ubeyin community."><div><h2>সতর্কতা!</h2><p>আপনার পাসওয়ার্ড অবৈধ, দয়া করে আবার চেষ্টা করুন!</p><section>' + joinID + '</section><button onclick="this.parentNode.parentNode.style.display = \'none\';this.parentNode.parentNode.parentNode.parentNode.style.display = \'none\';">ঠিক আছে, আমি সমাধান করব</button></div>');
-                } else if (a == 0) {
+                } else if (a.includes("C0") === true) {
                     alertJoin(2, '<img src="../dist/image/moment.png" title="Welcome to ubeyin community."><div><h2>সতর্কতা!</h2><p>ডেটা কানেকশন ত্রুটি, অনুগ্রহ করে আবার চেষ্টা করুন!</p><section>' + joinID + '</section><button onclick="this.parentNode.parentNode.style.display = \'none\';this.parentNode.parentNode.parentNode.parentNode.style.display = \'none\';">ঠিক আছে</button><button onclick="window.location.reload();">পৃষ্ঠাটি রিফ্রেশ করুন</button></div>');
                 } else {
                     alertJoin(2, '<img src="../dist/image/moment.png" title="Welcome to ubeyin community."><div><h2>সতর্কতা!</h2><p>আবার চেষ্টা করুন!</p><section>' + joinID + '</section><button onclick="this.parentNode.parentNode.style.display = \'none\';this.parentNode.parentNode.parentNode.parentNode.style.display = \'none\';">ঠিক আছে</button><button onclick="window.location.reload();">পৃষ্ঠাটি রিফ্রেশ করুনfresh the page</button></div>');
                 }
             } else {
-                if (a == 200) {
+                if (a.includes("C200") === true) {
                     setCookie("YTdfhfdh", joinID);
                     setCookie("hfdhYTdf", joinPS);
                     alertJoin(0, joinID);
-                } else if (a == 404) {
+                } else if (a.includes("C404") === true) {
                     alertJoin(2, '<img src="dist/image/moment.png" title="Welcome to ubeyin community."><div><h2>Warning!</h2><p>The ID you entered isn\'t connected or unavailable, please try again or create an account!</p><section>' + joinID + '</section><button onclick="this.parentNode.parentNode.style.display = \'none\';this.parentNode.parentNode.parentNode.parentNode.style.display = \'none\';">Okay</button><button onclick="this.parentNode.parentNode.style.display = \'none\';this.parentNode.parentNode.parentNode.parentNode.style.display = \'none\';joinTo();">Create an account</button></div>');
-                } else if (a == 400) {
+                } else if (a.includes("C400") === true) {
                     alertJoin(2, '<img src="dist/image/moment.png" title="Welcome to ubeyin community."><div><h2>Warning!</h2><p>Your password is invalid, please try again!</p><section>' + joinID + '</section><button onclick="this.parentNode.parentNode.style.display = \'none\';this.parentNode.parentNode.parentNode.parentNode.style.display = \'none\';">Okay</button></div>');
-                } else if (a == 0) {
+                } else if (a.includes("C0") === true) {
                     alertJoin(2, '<img src="dist/image/moment.png" title="Welcome to ubeyin community."><div><h2>Warning!</h2><p>Data connection error, please try again!</p><section>' + joinID + '</section><button onclick="this.parentNode.parentNode.style.display = \'none\';this.parentNode.parentNode.parentNode.parentNode.style.display = \'none\';">Okay</button><button onclick="window.location.reload();">Okay, refresh the page</button></div>');
                 } else {
                     alertJoin(2, '<img src="dist/image/moment.png" title="Welcome to ubeyin community."><div><h2>Warning!</h2><p>Error, please try again!</p><section>' + joinID + '</section><button onclick="this.parentNode.parentNode.style.display = \'none\';this.parentNode.parentNode.parentNode.parentNode.style.display = \'none\';">Okay</button><button onclick="window.location.reload();">Okay, refresh the page</button></div>');
@@ -54,15 +54,15 @@ if (document.getElementById("regi-form")) {
             if (window.location.href.indexOf("/bn") > -1) {
 
             } else {
-                if (a == 200) {
+                if (a.includes("C200") === true) {
                     setCookie("YTdfhfdh", joinID);
                     setCookie("hfdhYTdf", joinPS);
                     alertJoin(1, joinID);
-                } else if (a == 404) {
+                } else if (a.includes("C404") === true) {
                     alertJoin(2, '<img src="dist/image/moment.png" title="Welcome to ubeyin community."><div><h2>Warning!</h2><p>Unable to create your new account, please try again or later!</p><section>' + joinID + '</section><button onclick="this.parentNode.parentNode.style.display = \'none\';this.parentNode.parentNode.parentNode.parentNode.style.display = \'none\';">Okay</button></div>');
-                } else if (a == 400) {
+                } else if (a.includes("C400") === true) {
                     alertJoin(2, '<img src="dist/image/moment.png" title="Welcome to ubeyin community."><div><h2>Warning!</h2><p>The full name you entered is available, please try with another name/password!</p><section>' + joinID + '</section><button onclick="this.parentNode.parentNode.style.display = \'none\';this.parentNode.parentNode.parentNode.parentNode.style.display = \'none\';">Okay</button></div>');
-                } else if (a == 0) {
+                } else if (a.includes("C0") === true) {
                     alertJoin(2, '<img src="dist/image/moment.png" title="Welcome to ubeyin community."><div><h2>Warning!</h2><p>Data connection error, please try again!</p><section>' + joinID + '</section><button onclick="this.parentNode.parentNode.style.display = \'none\';this.parentNode.parentNode.parentNode.parentNode.style.display = \'none\';">Okay</button><button onclick="window.location.reload();">Okay, refresh the page</button></div>');
                 } else {
                     alertJoin(2, '<img src="dist/image/moment.png" title="Welcome to ubeyin community."><div><h2>Warning!</h2><p>Error, please try again!</p><section>' + joinID + '</section><button onclick="this.parentNode.parentNode.style.display = \'none\';this.parentNode.parentNode.parentNode.parentNode.style.display = \'none\';">Okay</button><button onclick="window.location.reload();">Okay, refresh the page</button></div>');

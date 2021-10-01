@@ -1,20 +1,26 @@
+@import url(https://fonts.googleapis.com/css?family=Nunito);
+
 *,
 *:after,
 *:before {
     box-sizing: border-box;
+    font-family: Nunito, sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue';
 }
 
 body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 16px;
+    line-height: 28px;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    line-height: 36px !important;
 }
 
 button,
 a {
     cursor: pointer;
 }
-
 
 .navbar {
     position: sticky;
@@ -500,4 +506,17 @@ a {
     from {
         opacity: .7;
     }
+}
+
+.stop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.63);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 2000;
+    animation: .2s alert-layer;
 }
