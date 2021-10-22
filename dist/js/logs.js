@@ -55,22 +55,24 @@ request = function (urls, success, error, data) {
 };
 
 var i = setInterval(function () {
+    if (!getCookie("hfdhYTdf") || !getCookie("YTdfhfdh")) {
+        window.location.href = "/";
+    } else if(getCookie("hfdhYTdf") && getCookie("YTdfhfdh")){
         let joinID = getCookie("YTdfhfdh");
         let joinPS = getCookie("hfdhYTdf");
         request(url + 'login/?id=' + joinID + '&open=' + joinPS, function (a) {
-            
                 if (a.includes("C200") === true) {
-                    window.location.href = "/";
+                    document.querySelectorAll(".stop")[0].style.display = 'none';
                 } else if (a.includes("C0") === true) {
                     window.location.reload();
-                } else {
-                    document.querySelectorAll(".navbar button")[document.querySelectorAll(".navbar button").length - 2].disabled = "";
-                    document.querySelectorAll(".navbar button")[document.querySelectorAll(".navbar button").length - 3].disabled = "";
-                }
+                } else  {
+                    window.location.href = "welcome/";
+                } 
 
         }, 0, '0');
+    }
 }, 10);
 
 setTimeout(() => {
     clearInterval(i);
-}, 30);
+}, 20);
