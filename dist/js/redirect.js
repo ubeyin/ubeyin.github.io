@@ -1,4 +1,5 @@
 var url = "https://ubapp.000webhostapp.com/";
+var a = false;
 
 function getCookie(cname) {
     let name = cname + "=";
@@ -55,20 +56,24 @@ request = function (urls, success, error, data) {
 };
 
 var i = setInterval(function () {
-        let joinID = getCookie("YTdfhfdh");
-        let joinPS = getCookie("hfdhYTdf");
-        request(url + 'login/?id=' + joinID + '&open=' + joinPS, function (a) {
-            
-                if (a.includes("C200") === true) {
-                    window.location.href = "/";
-                } else if (a.includes("C0") === true) {
-                    window.location.reload();
-                } else {
-                    document.querySelectorAll(".navbar button")[document.querySelectorAll(".navbar button").length - 2].disabled = "";
-                    document.querySelectorAll(".navbar button")[document.querySelectorAll(".navbar button").length - 3].disabled = "";
-                }
+    let joinID = getCookie("YTdfhfdh");
+    let joinPS = getCookie("hfdhYTdf");
+    request(url + 'login/?id=' + joinID + '&open=' + joinPS, function (a) {
 
-        }, 0, '0');
+        if (a.includes("C200") === true) {
+            if (a == false) {
+                window.location.href = "/";
+            } else {
+                document.querySelectorAll(".navbar button")[document.querySelectorAll(".navbar button").length - 2].style.display = 'inline-block';
+            }
+        } else if (a == false && a.includes("C0") === true) {
+            window.location.reload();
+        } else {
+            document.querySelectorAll(".navbar button")[document.querySelectorAll(".navbar button").length - 3].style.display = 'inline-block';
+            document.querySelectorAll(".navbar button")[document.querySelectorAll(".navbar button").length - 4].style.display = 'inline-block';
+        }
+
+    }, 0, '0');
 }, 10);
 
 setTimeout(() => {
