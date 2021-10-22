@@ -60,8 +60,7 @@ var i = setInterval(function () {
         request(url + 'login/?id=' + joinID + '&open=' + joinPS, function (a) {
             
                 if (a.includes("C200") === true) {
-                    if(window.location.href.includes("#home") === false) window.location.href = "home/";
-                    else  window.location.href = "../home/";
+                    window.location.href = ".https://ubeyin.github.io/home/";
                 } else if (a.includes("C0") === true) {
                     window.location.reload();
                 } else {
