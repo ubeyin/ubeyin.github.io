@@ -714,7 +714,7 @@ body.home {
     margin: 30px;
     padding: 30px;
     background: #fff;
-    width: 360px;
+    width: 100%;
     display: flex;
     flex-direction: column;
 }
