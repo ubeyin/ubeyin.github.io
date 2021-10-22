@@ -59,10 +59,10 @@ if (document.getElementById("regi-form")) {
 
 if (document.querySelectorAll(".alert")[0]) {
     document.querySelectorAll(".alert")[0].querySelectorAll('button')[0].onclick = function () {
-        window.location.href = "../home/";
+        window.location.href = "../";
     }
     document.querySelectorAll(".alert")[0].querySelectorAll('button')[1].onclick = function () {
-        window.location.href = "../home/";
+        window.location.href = "../";
     }
 }
 
