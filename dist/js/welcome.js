@@ -15,8 +15,8 @@ var i = setInterval(function () {
             window.location.reload();
         } else {
             k = true;
-            document.querySelectorAll(".navbar button")[document.querySelectorAll(".navbar button").length - 3].style.display = 'inline-block';
-            document.querySelectorAll(".navbar button")[document.querySelectorAll(".navbar button").length - 4].style.display = 'inline-block';
+            document.querySelectorAll(".navbar button")[document.querySelectorAll(".navbar button").length - 3].style.display = '';
+            document.querySelectorAll(".navbar button")[document.querySelectorAll(".navbar button").length - 4].style.display = '';
         }
 
     }, 0, '0');
