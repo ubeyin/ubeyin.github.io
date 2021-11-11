@@ -40,7 +40,8 @@
     <!-- Open Graph data -->
     <meta property="og:title" content="Ubeyin - A Better Community">
 
-    <meta property="og:description" content="Build a developer community and media, where we provide a free, compatible services and we want to build a respective, flexible community, it's Ubeyin.">
+    <meta property="og:description"
+        content="Build a developer community and media, where we provide a free, compatible services and we want to build a respective, flexible community, it's Ubeyin.">
     <meta property="og:image" content="dist/image/banner.png">
 
     <meta property="og:site_name" content="Ubeyin">
@@ -177,160 +178,8 @@
     </div>
 
     <div class="stops"></div>
-
-    <script src="dist/js/util.js"></script>
-    <script src="dist/js/logs.js"></script>
-    <script>
-        function switch_home() {
-            document.getElementById("it1").getElementsByClassName("_inactive")[0].classList.add("none");
-            document.getElementById("it1").getElementsByClassName("_active")[0].classList.remove("none");
-            document.getElementById("it2").getElementsByClassName("_inactive")[0].classList.remove("none");
-            document.getElementById("it2").getElementsByClassName("_active")[0].classList.add("none");
-            document.getElementById("it3").getElementsByClassName("_inactive")[0].classList.remove("none");
-            document.getElementById("it3").getElementsByClassName("_active")[0].classList.add("none");
-            document.getElementById("it4").getElementsByClassName("_inactive")[0].classList.remove("none");
-            document.getElementById("it4").getElementsByClassName("_active")[0].classList.add("none");
-            setCookie('mtr8y457', '1');
-        }
-
-        function switch_friend() {
-            document.getElementById("it2").getElementsByClassName("_inactive")[0].classList.add("none");
-            document.getElementById("it2").getElementsByClassName("_active")[0].classList.remove("none");
-            document.getElementById("it1").getElementsByClassName("_inactive")[0].classList.remove("none");
-            document.getElementById("it1").getElementsByClassName("_active")[0].classList.add("none");
-            document.getElementById("it3").getElementsByClassName("_inactive")[0].classList.remove("none");
-            document.getElementById("it3").getElementsByClassName("_active")[0].classList.add("none");
-            document.getElementById("it4").getElementsByClassName("_inactive")[0].classList.remove("none");
-            document.getElementById("it4").getElementsByClassName("_active")[0].classList.add("none");
-            setCookie('mtr8y457', '2');
-        }
-
-        function switch_watch() {
-            document.getElementById("it3").getElementsByClassName("_inactive")[0].classList.add("none");
-            document.getElementById("it3").getElementsByClassName("_active")[0].classList.remove("none");
-            document.getElementById("it2").getElementsByClassName("_inactive")[0].classList.remove("none");
-            document.getElementById("it2").getElementsByClassName("_active")[0].classList.add("none");
-            document.getElementById("it1").getElementsByClassName("_inactive")[0].classList.remove("none");
-            document.getElementById("it1").getElementsByClassName("_active")[0].classList.add("none");
-            document.getElementById("it4").getElementsByClassName("_inactive")[0].classList.remove("none");
-            document.getElementById("it4").getElementsByClassName("_active")[0].classList.add("none");
-            setCookie('mtr8y457', '3');
-        }
-
-        function switch_product() {
-            document.getElementById("it3").getElementsByClassName("_inactive")[0].classList.remove("none");
-            document.getElementById("it3").getElementsByClassName("_active")[0].classList.add("none");
-            document.getElementById("it2").getElementsByClassName("_inactive")[0].classList.remove("none");
-            document.getElementById("it2").getElementsByClassName("_active")[0].classList.add("none");
-            document.getElementById("it1").getElementsByClassName("_inactive")[0].classList.remove("none");
-            document.getElementById("it1").getElementsByClassName("_active")[0].classList.add("none");
-            document.getElementById("it4").getElementsByClassName("_inactive")[0].classList.add("none");
-            document.getElementById("it4").getElementsByClassName("_active")[0].classList.remove("none");
-            setCookie('mtr8y457', '4');
-        }
-
-        document.getElementById("it1").onclick = function () {
-            switch_home();
-        }
-        document.getElementById("it2").onclick = function () {
-            switch_friend();
-        }
-        document.getElementById("it3").onclick = function () {
-            switch_watch();
-        }
-        document.getElementById("it4").onclick = function () {
-            switch_product();
-        }
-
-        document.getElementById("menubar").onclick = function () {
-            if (document.querySelectorAll(".dropdown")[0].className === "dropdown none") {
-                document.querySelectorAll(".dropdown")[0].classList.remove("none");
-                document.querySelectorAll("#menubar")[0].style.backgroundColor = "rgba(0,0,0,.06)";
-            } else if (document.querySelectorAll(".dropdown")[0].className === "dropdown") {
-                document.querySelectorAll(".dropdown")[0].classList.add("none");
-                document.querySelectorAll("#menubar")[0].style.backgroundColor = "transparent";
-            }
-        }
-        window.onload = function () {
-            if (getCookie('mtr8y457') === "1") {
-                switch_home();
-            } else if (getCookie('mtr8y457') === "2") {
-                switch_friend();
-            } else if (getCookie('mtr8y457') === "3") {
-                switch_watch();
-            } else if (getCookie('mtr8y457') === "4") {
-                switch_product();
-            } else {
-                switch_home();
-            }
-        };
-
-        /* Ajax Functions */
-        function Ajax(urls, success, error) {
-            let xhr = new XMLHttpRequest();
-            if (window.ActiveXObject) {
-                try {
-                    xhr = new ActiveXObject("Microsoft.XMLHTTP");
-                } catch (e) {
-                    xhr = false;
-                }
-            } else {
-                try {
-                    xhr = new XMLHttpRequest();
-                } catch (e) {
-                    xhr = false;
-                }
-            }
-
-            if (!xhr) {
-                return error();
-            } else {
-                xhr.open("GET", urls);
-                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
-                xhr.onreadystatechange = function () {
-                    if (this.readyState == 4 && this.status == 200) {
-                        if (success) return success(this.responseText, urls);
-                    }
-                }
-                xhr.onerror = function () {
-                    if (error) return error();
-                }
-            }
-            xhr.send(0);
-            console.log(xhr)
-        }
-
-        /* Cookie Functions */
-        function setCookie(cname, cvalue, exdays) {
-            const d = new Date();
-            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-            let expires = "expires=" + d.toUTCString();
-            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-        }
-
-        function getCookie(cname) {
-            let name = cname + "=";
-            let decodedCookie = decodeURIComponent(document.cookie);
-            let ca = decodedCookie.split(';');
-            for (let i = 0; i < ca.length; i++) {
-                let c = ca[i];
-                while (c.charAt(0) == ' ') {
-                    c = c.substring(1);
-                }
-                if (c.indexOf(name) == 0) {
-                    return c.substring(name.length, c.length);
-                }
-            }
-            return "";
-        }
-
-        function removeCookie(cname) {
-            const d = new Date();
-            d.setTime(d.getTime() + (100000000 * 24 * 60 * 60 * 1000));
-            let expires = "expires=" + d.toUTCString();
-            document.cookie = cname + "=;" + expires + ";path=/";
-        }
-    </script>
+    <script src="dist/js/use.js"></script>
+    <script src="dist/js/home.js"></script>
 </body>
 
 </html>
