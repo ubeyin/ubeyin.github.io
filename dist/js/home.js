@@ -96,7 +96,8 @@ var i = setInterval(function () {
 
         if (a.includes("C200") === true) {
             k = true;
-            document.querySelectorAll(".stops")[0].style.display = "none";
+            document.querySelectorAll(".home-lbox")[0].style.display = "none";
+            document.querySelectorAll(".home-container")[0].style.display = "";
         } else if (a.includes("C0") === true) {
             k = true;
             window.location.reload();
