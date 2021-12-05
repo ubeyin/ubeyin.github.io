@@ -303,7 +303,7 @@ a {
 }
 
 .banner3 button {
-    background-color: rgba(0, 0, 0, .032);
+    background-color: rgba(15, 81, 50, 0.0915);
     padding: 7px 17px;
     font-size: 15.6px;
     color: #0f5132;
@@ -448,7 +448,7 @@ a {
 }
 
 .footer {
-    background-color: rgba(248, 248, 248, 0.76)
+    background-color: rgba(15, 81, 50, 0.215)
         /*#2d3e50*/
     ;
     color: #333;
@@ -460,6 +460,11 @@ a {
 .footer .credit h2 {
     margin: 0px;
     padding-top: 20px;
+}
+
+.footer .credit img {
+    margin: auto;
+    margin-top: 5px;
 }
 
 .footer .credit p {
