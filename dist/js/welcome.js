@@ -10,13 +10,14 @@ var i = setInterval(function () {
             if (a.includes("C200") === true) {
                 k = true;
                 document.querySelectorAll(".navbar button")[document.querySelectorAll(".navbar button").length - 2].style.display = 'inline-block';
+                document.querySelectorAll(".navbar button")[document.querySelectorAll(".navbar button").length - 3].style.display = 'inline-block';
             } else if (a.includes("C0") === true) {
                 k = true;
                 window.location.reload();
             } else {
                 k = true;
-                document.querySelectorAll(".navbar button")[document.querySelectorAll(".navbar button").length - 3].style.display = '';
                 document.querySelectorAll(".navbar button")[document.querySelectorAll(".navbar button").length - 4].style.display = '';
+                document.querySelectorAll(".navbar button")[document.querySelectorAll(".navbar button").length - 5].style.display = '';
             }
 
         }, 0, '0');
