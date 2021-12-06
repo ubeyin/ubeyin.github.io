@@ -1,4 +1,3 @@
-
 /************/
 
 function switch_home() {
@@ -10,7 +9,10 @@ function switch_home() {
     document.getElementById("it3").getElementsByClassName("_active")[0].classList.add("none");
     document.getElementById("it4").getElementsByClassName("_inactive")[0].classList.remove("none");
     document.getElementById("it4").getElementsByClassName("_active")[0].classList.add("none");
-    setCookie('mtr8y457', '1');
+    new iDB.write("ubeyin", [{
+        id: 2,
+        "mtr8y457": '1'
+    }]);
 }
 
 function switch_friend() {
@@ -22,7 +24,10 @@ function switch_friend() {
     document.getElementById("it3").getElementsByClassName("_active")[0].classList.add("none");
     document.getElementById("it4").getElementsByClassName("_inactive")[0].classList.remove("none");
     document.getElementById("it4").getElementsByClassName("_active")[0].classList.add("none");
-    setCookie('mtr8y457', '2');
+    new iDB.write("ubeyin", [{
+        id: 2,
+        "mtr8y457": '2'
+    }]);
 }
 
 function switch_watch() {
@@ -34,7 +39,10 @@ function switch_watch() {
     document.getElementById("it1").getElementsByClassName("_active")[0].classList.add("none");
     document.getElementById("it4").getElementsByClassName("_inactive")[0].classList.remove("none");
     document.getElementById("it4").getElementsByClassName("_active")[0].classList.add("none");
-    setCookie('mtr8y457', '3');
+    new iDB.write("ubeyin", [{
+        id: 2,
+        "mtr8y457": '3'
+    }]);
 }
 
 function switch_product() {
@@ -46,7 +54,10 @@ function switch_product() {
     document.getElementById("it1").getElementsByClassName("_active")[0].classList.add("none");
     document.getElementById("it4").getElementsByClassName("_inactive")[0].classList.add("none");
     document.getElementById("it4").getElementsByClassName("_active")[0].classList.remove("none");
-    setCookie('mtr8y457', '4');
+    new iDB.write("ubeyin", [{
+        id: 2,
+        "mtr8y457": '4'
+    }]);
 }
 
 document.getElementById("it1").onclick = function () {
@@ -90,23 +101,29 @@ window.onload = function () {
 
 var k = false;
 var i = setInterval(function () {
-    let joinID = getCookie("YTdfhfdh");
-    let joinPS = getCookie("hfdhYTdf");
-    request(`${url}login/?id=${joinID}&open=${joinPS}`, function (a) {
+    new iDB.read("ubeyin", function (a) {
+        setTimeout(() => {
+            joinID = a[0]["YTdfhfdh"];
+            joinPS = a[0]["hfdhYTdf"];
 
-        if (a.includes("C200") === true) {
-            k = true;
-            document.querySelectorAll(".home-lbox")[0].style.display = "none";
-            document.querySelectorAll(".home-container")[0].style.display = "";
-        } else if (a.includes("C0") === true) {
-            k = true;
-            window.location.reload();
-        } else {
-            k = true;
-            window.location.href = 'welcome/'
-        }
+            request(`${url}login/?id=${joinID}&open=${joinPS}`, function (a) {
 
-    }, 0, '0');
+                if (a.includes("C200") === true) {
+                    k = true;
+                    document.querySelectorAll(".home-lbox")[0].style.display = "none";
+                    document.querySelectorAll(".home-container")[0].style.display = "";
+                } else if (a.includes("C0") === true) {
+                    k = true;
+                    window.location.reload();
+                } else {
+                    k = true;
+                    window.location.href = 'welcome/'
+                }
+
+            }, 0, '0');
+
+        }, 600);
+    });
 }, 100);
 
 setInterval(() => {

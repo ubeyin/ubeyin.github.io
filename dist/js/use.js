@@ -68,3 +68,82 @@ function shiftCookie(cname, cvalue) {
 function delCookie(cname, cvalue) {
     document.cookie = "";
 }
+
+var activeIndex;
+var db;
+
+/* In the following line, you should include the prefixes of implementations you want to test.*/
+window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
+/* DON'T use "var indexedDB = ..." if you're not in a function.*/
+/* Moreover, you may need references to some window.IDB* objects:*/
+window.IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || window.msIDBTransaction;
+window.IDBKeyRange = window.IDBKeyRange || window.webkitIDBKeyRange || window.msIDBKeyRange;
+/* (Mozilla has never prefixed these objects, so we don't need window.mozIDB*) */
+
+var iDB = {
+    read: function (id, onload) {
+        var DBOpenRequest = window.indexedDB.open(id, 1);
+
+        DBOpenRequest.onsuccess = function (event) {
+            db = DBOpenRequest.result;
+            var objall = [];
+
+            var transaction = db.transaction([id], 'readonly');
+            var objectStore = transaction.objectStore(id);
+
+            objectStore.openCursor().onsuccess = function (event) {
+                var cursor = event.target.result;
+                if (cursor) {
+                    objall.push(cursor.value);
+                    cursor.continue();
+                } else {
+                    /* console.log('Entries all displayed.'); */
+                }
+            };
+            return onload(objall);
+        };
+    },
+    write: function (id, value) {
+        var DBOpenRequest = window.indexedDB.open(id, 1);
+
+        DBOpenRequest.onsuccess = function (event) {
+            db = DBOpenRequest.result;
+
+            if (typeof value === "object") {
+                var transaction = db.transaction([id], 'readwrite');
+                var objectStore = transaction.objectStore(id);
+
+                for (i = 0; i < value.length; i++) {
+                    objectStore.put(value[i]);
+                };
+
+                transaction.oncomplete = function () {};
+
+            } else {
+
+            }
+        };
+
+        DBOpenRequest.onupgradeneeded = function (event) {
+            var db = event.target.result;
+
+            db.onerror = function (event) {
+                console.log('Error loading database.');
+            };
+
+            var objectStore = db.createObjectStore(id, {
+                keyPath: 'id'
+            });
+
+            /*for (let i = 0; i < value.length; i++) {
+                if (typeof value[i] === "object") {
+                    for (let l = 0; l < value[i].length; l++) {
+                        objectStore.createIndex(Object.keys(value[i][l]), Object.keys(value[i][l]), {
+                            unique: false
+                        });
+                    }
+                }
+            }*/
+        };
+    },
+};
