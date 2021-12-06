@@ -13,11 +13,6 @@ if (document.getElementById("join-form")) {
                 setCookie("YTdfhfdh", joinID);
                 setCookie("hfdhYTdf", joinPS);
 
-                new iDB.write("ubeyin", [{
-                    id: 1,
-                    "YTdfhfdh": joinID,
-                    "hfdhYTdf": joinPS
-                }]);
                 alertJoin(0, joinID);
             } else if (a.includes("C404") === true) {
                 alertJoin(2, '<div><h2>Warning!</h2><p>The ID you entered isn\'t connected or unavailable, please try again or create an account!</p><section>' + joinID + '</section><button onclick="this.parentNode.parentNode.style.display = \'none\';this.parentNode.parentNode.parentNode.parentNode.style.display = \'none\';">Okay</button><button onclick="this.parentNode.parentNode.style.display = \'none\';this.parentNode.parentNode.parentNode.parentNode.style.display = \'none\';joinTo();">Create an account</button></div>');
@@ -44,11 +39,9 @@ if (document.getElementById("regi-form")) {
         request(url + 'signup/?id=' + joinID + '&email=' + joinEM + '&open=' + joinPS, function (a) {
 
             if (a.includes("C200") === true) {
-                new iDB.write("ubeyin", [{
-                    id: 1,
-                    "YTdfhfdh": joinID,
-                    "hfdhYTdf": joinPS
-                }]);
+                setCookie("YTdfhfdh", joinID);
+                setCookie("hfdhYTdf", joinPS);
+
                 alertJoin(1, joinID);
             } else if (a.includes("C404") === true) {
                 alertJoin(2, '<div><h2>Warning!</h2><p>Unable to create your new account, please try again or later!</p><section>' + joinID + '</section><button onclick="this.parentNode.parentNode.style.display = \'none\';this.parentNode.parentNode.parentNode.parentNode.style.display = \'none\';">Okay</button></div>');
@@ -110,25 +103,27 @@ alertJoin = function (state, msg) {
 var k = false;
 var i = setInterval(function () {
     let joinID, joinPS;
-    new iDB.read("ubeyin", function (a) {
-        setTimeout(() => {
-            joinID = a[0]["YTdfhfdh"];
-            joinPS = a[0]["hfdhYTdf"];
-            request(`${url}login/?id=${joinID}&open=${joinPS}`, function (a) {
+    let fdgdg = function () {
+        request(`${url}login/?id=${joinID}&open=${joinPS}`, function (a) {
 
-                if (a.includes("C200") === true) {
-                    k = true;
-                    window.location.href = '../';
-                } else if (a.includes("C0") === true) {
-                    k = true;
-                    window.location.reload();
-                } else {
-                    k = true;
-                }
+            if (a.includes("C200") === true) {
+                k = true;
+                window.location.href = '../';
+            } else if (a.includes("C0") === true) {
+                k = true;
+                window.location.reload();
+            } else {
+                k = true;
+            }
 
-            }, 0, '0');
-        }, 600);
-    });
+        }, 0, '0');
+    };
+
+    joinID = getCookie("YTdfhfdh");
+    joinPS = getCookie("hfdhYTdf");
+    setTimeout(() => {
+        fdgdg();
+    }, 600);
 }, 100);
 
 setInterval(() => {

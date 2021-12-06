@@ -2,28 +2,30 @@
 
 var k = false;
 var i = setInterval(function () {
-    new iDB.read("ubeyin", function (a) {
-        setTimeout(() => {
-            joinID = a[0]["YTdfhfdh"];
-            joinPS = a[0]["hfdhYTdf"];
-            
-            request(`${url}login/?id=${joinID}&open=${joinPS}`, function (a) {
+    var joinID, joinPS;
+    var sghtg = function () {
 
-                if (a.includes("C200") === true) {
-                    k = true;
-                    document.querySelectorAll(".navbar button")[document.querySelectorAll(".navbar button").length - 2].style.display = 'inline-block';
-                } else if (a.includes("C0") === true) {
-                    k = true;
-                    window.location.reload();
-                } else {
-                    k = true;
-                    document.querySelectorAll(".navbar button")[document.querySelectorAll(".navbar button").length - 3].style.display = '';
-                    document.querySelectorAll(".navbar button")[document.querySelectorAll(".navbar button").length - 4].style.display = '';
-                }
+        request(`${url}login/?id=${joinID}&open=${joinPS}`, function (a) {
 
-            }, 0, '0');
-        }, 600);
-    });
+            if (a.includes("C200") === true) {
+                k = true;
+                document.querySelectorAll(".navbar button")[document.querySelectorAll(".navbar button").length - 2].style.display = 'inline-block';
+            } else if (a.includes("C0") === true) {
+                k = true;
+                window.location.reload();
+            } else {
+                k = true;
+                document.querySelectorAll(".navbar button")[document.querySelectorAll(".navbar button").length - 3].style.display = '';
+                document.querySelectorAll(".navbar button")[document.querySelectorAll(".navbar button").length - 4].style.display = '';
+            }
+
+        }, 0, '0');
+    }
+    joinID = getCookie("YTdfhfdh");
+    joinPS = getCookie("hfdhYTdf");
+    setTimeout(() => {
+        sghtg();
+    }, 600);
 }, 100);
 
 setInterval(() => {
