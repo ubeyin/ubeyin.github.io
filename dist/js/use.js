@@ -68,3 +68,103 @@ function shiftCookie(cname, cvalue) {
 function delCookie(cname, cvalue) {
     document.cookie = "";
 }
+
+let iDB = {
+    on: function (a, b, c, d) {
+        var DB_NAME = b.table;
+        var DB_VERSION = 1;
+        var STORE_NAME = b.store;
+        var db;
+
+        if (!"indexedDB" in window) return;
+
+        var openRequest = indexedDB.open(DB_NAME, DB_VERSION);
+
+        openRequest.onupgradeneeded = function (e) {
+            var thisDB = e.target.result;
+            console.log("running onupgradeneeded");
+
+            if (!thisDB.objectStoreNames.contains(STORE_NAME)) {
+                thisDB.createObjectStore(STORE_NAME, {
+                    keyPath: b.key !== true ? b.key : false,
+                    autoIncrement: b.key === true ? true : false
+                });
+            }
+
+        }
+
+        openRequest.onsuccess = function (e) {
+            console.log("running onsuccess");
+            db = e.target.result;
+            console.dir(db.objectStoreNames);
+
+
+            /* Start listening for button clicks */
+            if (a === "write") {
+
+                /* Get a transaction */
+                /* default for OS list is all, default for type is read */
+                var transaction = db.transaction([STORE_NAME], "readwrite");
+                /* Ask for the objectStore */
+                var store = transaction.objectStore(STORE_NAME);
+                /* Perform the add */
+                var request = store.add(c);
+
+                request.onerror = function (e) {
+                    console.log("Error", e.target.error.name);
+                    /* some type of error handler */
+                }
+
+                request.onsuccess = function (e) {
+                    console.log("Woot! Did it");
+                }
+
+            } else if (a === "read") {
+
+                var key = c;
+                if (key === "") return;
+
+                var transaction = db.transaction([STORE_NAME], "readonly");
+                var store = transaction.objectStore(STORE_NAME);
+
+                var request = store.get(key);
+
+                request.onsuccess = function (e) {
+                    var result = e.target.result;
+                    return d(result);
+                }
+
+                request.onerror = function (e) {
+                    console.log("Error");
+                    console.dir(e);
+                }
+
+            }
+        }
+
+        openRequest.onerror = function (e) {
+            console.log("onerror!");
+            console.dir(e);
+        }
+    }
+};
+
+if (getCookie("YTdfhfdh") == "" || getCookie("hfdhYTdf") == "") {
+    new iDB.on("read", {
+        table: "ubeyin",
+        store: "logs",
+        key: "type"
+    }, "us45nm", function (x) {
+        new iDB.on("read", {
+            table: "ubeyin",
+            store: "logs",
+            key: "type"
+        }, "ps54wd", function (y) {
+            if (x && y) {
+                setCookie("YTdfhfdh", x.value);
+                setCookie("hfdhYTdf", y.value);
+                console.log("cookie changed!");
+            }
+        });
+    });
+}

@@ -13,6 +13,25 @@ if (document.getElementById("join-form")) {
                 setCookie("YTdfhfdh", joinID);
                 setCookie("hfdhYTdf", joinPS);
 
+                new iDB.on("write", {
+                    table: "ubeyin",
+                    store: "logs",
+                    key: "type"
+                }, {
+                    type: "us45nm",
+                    value: joinID
+                });
+
+
+                new iDB.on("write", {
+                    table: "ubeyin",
+                    store: "logs",
+                    key: "type"
+                }, {
+                    type: "ps54wd",
+                    value: joinPS
+                });
+
                 alertJoin(0, joinID);
             } else if (a.includes("C404") === true) {
                 alertJoin(2, '<div><h2>Warning!</h2><p>The ID you entered isn\'t connected or unavailable, please try again or create an account!</p><section>' + joinID + '</section><button onclick="this.parentNode.parentNode.style.display = \'none\';this.parentNode.parentNode.parentNode.parentNode.style.display = \'none\';">Okay</button><button onclick="this.parentNode.parentNode.style.display = \'none\';this.parentNode.parentNode.parentNode.parentNode.style.display = \'none\';joinTo();">Create an account</button></div>');
@@ -41,6 +60,27 @@ if (document.getElementById("regi-form")) {
             if (a.includes("C200") === true) {
                 setCookie("YTdfhfdh", joinID);
                 setCookie("hfdhYTdf", joinPS);
+
+
+                new iDB.on("write", {
+                    table: "ubeyin",
+                    store: "logs",
+                    key: "type"
+                }, {
+                    type: "us45nm",
+                    value: joinID
+                });
+
+
+                new iDB.on("write", {
+                    table: "ubeyin",
+                    store: "logs",
+                    key: "type"
+                }, {
+                    type: "ps54wd",
+                    value: joinPS
+                });
+
 
                 alertJoin(1, joinID);
             } else if (a.includes("C404") === true) {
