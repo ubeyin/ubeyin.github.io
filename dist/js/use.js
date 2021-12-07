@@ -139,6 +139,25 @@ let iDB = {
                     console.dir(e);
                 }
 
+            } else if (a === "delete") {
+                var key = c;
+                if (key === "") return;
+
+                var transaction = db.transaction([STORE_NAME], "readwrite");
+                var store = transaction.objectStore(STORE_NAME);
+
+                var request = store.delete(key);
+
+                request.onsuccess = function (e) {
+                    console.log("deleted");
+                    console.dir(e);
+                }
+
+                request.onerror = function (e) {
+                    console.log("Error");
+                    console.dir(e);
+                }
+
             }
         }
 
