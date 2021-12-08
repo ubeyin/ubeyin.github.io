@@ -886,6 +886,43 @@ fieldset:disabled .button {
     opacity: .65
 }
 
+
+.button.primary {
+    color: #fff !important;
+    background-color: #0d6efd !important;
+    border-color: #0d6efd !important
+}
+
+.button.primary:hover {
+    color: #fff !important;
+    background-color: #0b5ed7 !important;
+    border-color: #0a58ca !important
+}
+
+.button.check:focus+.button.primary,
+.button.primary:focus {
+    color: #fff !important;
+    background-color: #0b5ed7 !important;
+    border-color: #0a58ca !important;
+}
+
+.button.check:active+.button.primary,
+.button.check:checked+.button.primary,
+.button.primary.active,
+.button.primary:active {
+    color: #fff !important;
+    background-color: #0a58ca !important;
+    border-color: #0a53be !important
+}
+
+.button.primary.disabled,
+.button.primary:disabled {
+    color: #fff !important;
+    background-color: #0d6efd !important;
+    border-color: #0d6efd !important
+}
+
+
 .round {
     border-radius: .25rem !important;
 }
