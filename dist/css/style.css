@@ -599,7 +599,7 @@ body.homes {
     top: 0;
     left: 0;
     z-index: 1000;
-    /*box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);*/
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
 }
 
 .home-nav {
@@ -644,7 +644,7 @@ body.homes {
     padding: 0 16px;
     margin: 10px 9px;
     margin-left: 10px;
-    background: -moz-linear-gradient(top, #4387fd, #4683ea) #4387fd;
+    background: rgba(67, 135, 253, 0.935);
     color: white;
     outline: 0;
     border: 0;
@@ -658,7 +658,7 @@ body.homes {
 }
 
 .home-nav-search>button:hover {
-    background: rgba(67, 135, 253, 0.835);
+    background: rgba(67, 135, 253, 0.635);
 }
 
 .home-head {
@@ -725,13 +725,19 @@ body.homes {
 }
 
 .home-menu>* {
-    margin: 0 10px;
+    margin: 0px 10px;
     border-radius: max(0px, min(8px, calc((100vw - 4px - 100%) * 9999))) / 8px;
 }
 
 @media screen and (max-width: 422px) {
     .home-menu>* {
         margin: 0 1.2px;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .home-menu>* {
+        margin-top: 4px;
     }
 }
 
@@ -758,6 +764,7 @@ body.homes {
 }
 
 .home-lbox {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
     width: 90%;
     max-width: 500px;
     padding: 50px;
@@ -918,7 +925,7 @@ fieldset:disabled .button {
     padding: 15px;
     margin: 0;
     max-width: 540px;
-    min-width: 426px;
+    min-width: 406px;
     width: 99.375%;
     width: -webkit-calc(100% - 2px);
     width: calc(100% - 2px);
