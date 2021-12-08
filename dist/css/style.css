@@ -1037,3 +1037,42 @@ hr,
     color: #6c757d;
     opacity: 1;
 }
+
+/********************/
+.apps {
+    padding: 25px 10px;
+    display: flex;
+}
+
+.app-in {
+    width: 100px;
+    height: 120px;
+    padding: 15px 17px;
+    border: 1px dashed;
+    cursor: pointer;
+    user-select: none;
+    margin-right: 20px;
+}
+
+.app-in:hover {
+    border-color: rgba(67, 135, 253, 0.635);
+}
+
+.app-in:active {
+    transform: scale(.98) skew(2deg);
+}
+
+.app-in img {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(0, 0, 0, .062);
+    border-radius: 100rem;
+}
+
+.app-in p {
+    margin: auto;
+    text-align: center;
+    font-weight: 500;
+    margin-top: 0px;
+    font-size: 14px;
+}
