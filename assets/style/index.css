@@ -4,18 +4,8 @@
 }
 
 @font-face {
-    font-family: "Euclid Light";
-    src: url('Euclid Circular B Light.ttf');
-}
-
-@font-face {
     font-family: "Euclid Bold";
     src: url('Euclid Circular B Bold.ttf');
-}
-
-@font-face {
-    font-family: "Euclid Medium";
-    src: url('Euclid Circular B Medium.ttf');
 }
 
 *,
