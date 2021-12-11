@@ -1,0 +1,178 @@
+@font-face {
+    font-family: "Euclid";
+    src: url('Euclid Circular B Regular.ttf');
+}
+
+@font-face {
+    font-family: "Euclid Light";
+    src: url('Euclid Circular B Light.ttf');
+}
+
+@font-face {
+    font-family: "Euclid Bold";
+    src: url('Euclid Circular B Bold.ttf');
+}
+
+@font-face {
+    font-family: "Euclid Medium";
+    src: url('Euclid Circular B Medium.ttf');
+}
+
+*,
+*:after,
+*:before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Euclid", Helvetica, sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue';
+}
+
+body {
+    margin: 0;
+    font-size: 16px;
+    line-height: 28px;
+    background-color: #fff;
+    color: #1c1e21;
+    direction: ltr;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    line-height: 40px !important;
+}
+
+/**** profile.html ****/
+
+.navbar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.13);
+    z-index: 1000;
+    padding: 8px 19px;
+}
+
+.navbar::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.navbar div a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.navbar h2 {
+    margin: 0;
+    color: #333;
+    float: left;
+    padding: 5px;
+    font-family: "Euclid Bold", Helvetica, sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue';
+}
+
+.navbar div {
+    float: right;
+    padding-top: 5px;
+}
+
+.navbar div button {
+    padding: 10px 20px;
+    background-color: #d3eda3;
+    font-size: 15px;
+    border: 0;
+    outline: 0;
+    border-radius: .3rem;
+}
+
+/**/
+
+.profile .header {
+    width: 100%;
+    height: 200px;
+    background-color: rgba(15, 81, 50, 0.215);
+}
+
+.profile .header .avater {
+    position: relative;
+    top: 170px;
+    width: 120px;
+    height: 120px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 100rem;
+    margin: auto;
+}
+
+.profile .header h2 {
+    position: relative;
+    top: 180px;
+    width: 200px;
+    margin: auto;
+    text-align: center;
+}
+
+.profile .header p {
+    position: relative;
+    top: 180px;
+    width: 250px;
+    margin: auto;
+    text-align: center;
+    color: rgba(56, 62, 63, 0.787);
+}
+
+.profile .body {
+    padding: 20px;
+    height: 500px;
+}
+
+/**/
+
+.footer {
+    background-color: rgba(15, 81, 50, 0.215)
+        /*#2d3e50*/
+    ;
+    color: #333;
+    width: 100%;
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+.footer .credit h2 {
+    margin: 0px;
+    padding-top: 20px;
+}
+
+.footer .credit img {
+    margin: auto;
+    margin-top: 5px;
+}
+
+.footer .credit p {
+    margin-top: 10px;
+    font-size: .75rem;
+    line-height: 1.16667em;
+    color: #333;
+    margin-bottom: 13px;
+}
+
+.footer .credit div a {
+    display: inline-block;
+    margin-left: 10px;
+    font-size: .875rem;
+    font-weight: 600;
+    color: #333;
+    text-decoration: underline;
+}
+
+
+.footer .credit div a:not(:last-child)::after {
+    content: "";
+    padding-right: 10px;
+    border-right: 1px solid rgba(42, 42, 42, 0.496);
+}
